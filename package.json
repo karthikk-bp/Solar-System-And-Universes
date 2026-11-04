@@ -2,6 +2,7 @@
   "name": "vertex-universe-atlas",
   "version": "1.0.0",
   "description": "VERTEX: Astrophysical Universe & Celestial Atlas",
+  "homepage": "https://karthikk-bp.github.io/Solar-System-And-Universes/",
   "type": "module",
   "scripts": {
     "dev": "vite",

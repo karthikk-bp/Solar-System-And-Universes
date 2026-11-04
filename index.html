@@ -2,10 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VERTEX: Astrophysical Universe & Celestial Atlas</title>
-    <!-- Smart file:// Protocol Handler: If opened directly by double-clicking in File Explorer, seamlessly load standalone bundle -->
+    <!-- Smart Protocol Handler:
+         If double-clicked in File Explorer (file:// protocol), load standalone bundle vertex.html
+    -->
     <script>
       if (window.location.protocol === 'file:') {
         window.location.replace('vertex.html');
@@ -17,6 +19,6 @@
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/main.js" onerror="window.location.replace('vertex.html')"></script>
   </body>
 </html>

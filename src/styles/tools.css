@@ -61,6 +61,7 @@
 }
 
 .planet-select {
+  color-scheme: dark !important;
   font-family: var(--font-serif);
   background: rgba(212, 175, 55, 0.05);
   border: 1px solid var(--border-color);
@@ -75,6 +76,7 @@
 }
 
 .planet-select option {
+  color-scheme: dark !important;
   background: #090d18;
   color: #fff;
 }

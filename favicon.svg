@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="sunGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#fff5c0"/>
+      <stop offset="50%" stop-color="#ff9900"/>
+      <stop offset="100%" stop-color="#ff4500"/>
+    </radialGradient>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff"/>
+      <stop offset="100%" stop-color="#9d4edd"/>
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="46" fill="#070913"/>
+  <!-- Planet sphere -->
+  <circle cx="50" cy="50" r="24" fill="url(#sunGrad)"/>
+  <!-- Orbit Ring -->
+  <ellipse cx="50" cy="50" rx="42" ry="14" fill="none" stroke="url(#ringGrad)" stroke-width="4" transform="rotate(-30 50 50)"/>
+</svg>

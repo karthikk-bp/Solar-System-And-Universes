@@ -1,5 +1,6 @@
 // Build Single-File Standalone HTML
 // Inlines all CSS and JS into a 100% self-contained HTML file that runs from file:// in File Explorer
+// and as a fallback anywhere without dependencies.
 
 import fs from 'fs';
 import path from 'path';
@@ -34,6 +35,14 @@ let faviconDataUri = '';
 if (fs.existsSync(faviconPath)) {
   const svg = fs.readFileSync(faviconPath, 'utf-8');
   faviconDataUri = `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+  // Also copy favicon to root for direct root serving
+  fs.writeFileSync(path.resolve(rootDir, 'favicon.svg'), svg, 'utf-8');
+}
+
+// Ensure .nojekyll in both root and dist to prevent Jekyll processing on GitHub Pages
+fs.writeFileSync(path.resolve(rootDir, '.nojekyll'), '', 'utf-8');
+if (fs.existsSync(distDir)) {
+  fs.writeFileSync(path.resolve(distDir, '.nojekyll'), '', 'utf-8');
 }
 
 // Generate self-contained standalone HTML
@@ -60,10 +69,18 @@ ${jsContent}
   </body>
 </html>`;
 
-// Write to vertex.html (primary) and also cosmos.html in root
+// Write to root vertex.html (primary) and cosmos.html
 const targetVertex = path.resolve(rootDir, 'vertex.html');
 const targetCosmos = path.resolve(rootDir, 'cosmos.html');
 fs.writeFileSync(targetVertex, standaloneHtml, 'utf-8');
 fs.writeFileSync(targetCosmos, standaloneHtml, 'utf-8');
+
+// Also copy to dist/vertex.html and dist/cosmos.html for GitHub Pages dist deployment
+if (fs.existsSync(distDir)) {
+  fs.writeFileSync(path.resolve(distDir, 'vertex.html'), standaloneHtml, 'utf-8');
+  fs.writeFileSync(path.resolve(distDir, 'cosmos.html'), standaloneHtml, 'utf-8');
+}
+
 console.log(`✓ Generated standalone file: ${targetVertex} (${(Buffer.byteLength(standaloneHtml) / 1024).toFixed(1)} KB)`);
 console.log(`✓ Generated standalone file: ${targetCosmos} (${(Buffer.byteLength(standaloneHtml) / 1024).toFixed(1)} KB)`);
+console.log(`✓ Generated .nojekyll and sync completed for GitHub Pages`);

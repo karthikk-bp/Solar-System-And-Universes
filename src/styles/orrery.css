@@ -99,6 +99,7 @@
 }
 
 .orrery-planet-focus-selector select {
+  color-scheme: dark !important;
   font-family: var(--font-serif);
   background-color: #0b1120 !important;
   border: 1px solid var(--border-color);
@@ -111,6 +112,7 @@
 }
 
 .orrery-planet-focus-selector select option {
+  color-scheme: dark !important;
   background-color: #0b1120 !important;
   color: #f8fafc !important;
   padding: 8px 12px;

@@ -1,14 +1,42 @@
 # ✦ VERTEX: Astrophysical Universe & Celestial Atlas
 
+> **Live Website on GitHub Pages:**  
+> 🔗 **[https://karthikk-bp.github.io/Solar-System-And-Universes/](https://karthikk-bp.github.io/Solar-System-And-Universes/)**
+
 An interactive, editorial space atlas detailing the gravitational mechanics of our solar system, internal planetary structures, stellar nucleosynthesis, discovered galaxies, supermassive black holes, alien exoplanet systems, and a cinematic hyperdrive warp flight simulator.
 
 Styled in classical **Times New Roman** serif typography with celestial gold, obsidian spacetime, and interactive constellation vertex nodes.
 
 ---
 
-## 🚀 Two Ways to Run
+## 🌐 Live Deployment on GitHub Pages
 
-### Method 1: Double-Click from File Explorer (No Terminal or Node.js Required)
+The repository is fully configured for automated GitHub Pages hosting at:
+**[https://karthikk-bp.github.io/Solar-System-And-Universes/](https://karthikk-bp.github.io/Solar-System-And-Universes/)**
+
+### How It Deploys:
+1. **Automated GitHub Actions Workflow (`.github/workflows/deploy.yml`)**:
+   - Whenever you push changes to `main` (or `master`), GitHub automatically builds the production bundle and deploys it to your live Pages URL.
+2. **Relative Base Asset Resolution (`vite.config.js`)**:
+   - Assets are bundled using relative paths (`./assets/...`), preventing 404 path errors on GitHub Pages subpaths.
+3. **Dual Deployment Support**:
+   - **GitHub Actions (Recommended)**: Set repository `Settings` → `Pages` → `Source: GitHub Actions`.
+   - **Branch Deployment (Fallback)**: If set to deploy from branch `main` root `/`, the smart protocol handler automatically serves the self-contained `vertex.html`.
+
+### To Push to GitHub:
+```bash
+git add .
+git commit -m "Configure GitHub Pages deployment for Vertex Atlas"
+git push origin main
+```
+Then visit **Settings → Pages** in your GitHub repository and ensure **Source** is set to **GitHub Actions** (or select the **Deploy to GitHub Pages** workflow). Your site will be live at:
+`https://karthikk-bp.github.io/Solar-System-And-Universes/`
+
+---
+
+## 🚀 Three Ways to Run Locally
+
+### Method 1: Double-Click from File Explorer (Zero Setup / Offline)
 Simply open this folder in Windows File Explorer and **double-click**:
 - **[`vertex.html`](file:///c:/Users/Karthik%20B%20P/Documents/GitWorkShop/vertex.html)** (or [`index.html`](file:///c:/Users/Karthik%20B%20P/Documents/GitWorkShop/index.html))
 It will open directly in your web browser (Chrome, Edge, Firefox, Brave, etc.) and run the entire program offline with 100% full features, animations, and sound effects!
@@ -22,6 +50,14 @@ It will open directly in your web browser (Chrome, Edge, Firefox, Brave, etc.) a
    ```
 4. Click the local URL displayed in the terminal (typically `http://localhost:5173`) to launch the website with live hot-reloading!
 
+### Method 3: Test Production Build with `npm run preview`
+1. Run:
+   ```bash
+   npm run build
+   npm run preview
+   ```
+2. Opens the optimized, bundled production build on a local preview server (`http://localhost:4173`).
+
 ---
 
 ## 🌟 Key Features
@@ -31,7 +67,7 @@ It will open directly in your web browser (Chrome, Edge, Firefox, Brave, etc.) a
 
 ### 2. 🪐 Real-Time Orbital Orrery & Vertex Triangulation
 - **Live Orbit Simulation**: The Sun and all planets (Mercury through Pluto) revolve at scientifically proportional relative speeds.
-- **Fixed Dropdown Contrast**: Custom dark theme ensures dropdown menus and options render cleanly on Windows and all browsers.
+- **Fixed Dropdown Contrast**: Custom dark theme ensures dropdown menus and options render cleanly on Windows and all browsers without OS white-box bugs.
 - **Vertex Triangulation Lines**: Golden geometric constellation vectors connecting planetary orbital nodes.
 - **Asteroid Belt**: Over 350 animated particles circulating between Mars and Jupiter.
 - **Controls**:
@@ -80,4 +116,3 @@ For every planet (plus The Central Star, Earth's Moon, and Pluto):
 
 ### 7. 🔊 Pure Synthesized Web Audio
 - Built-in ethereal ambient space hum, warp charge, hyperspace whoosh, and UI sound cues generated live via the Web Audio API without requiring any external audio files.
-
