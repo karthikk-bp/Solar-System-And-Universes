@@ -5,20 +5,62 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VERTEX: Astrophysical Universe & Celestial Atlas</title>
-    <!-- Smart Protocol Handler:
-         If double-clicked in File Explorer (file:// protocol), load standalone bundle vertex.html
-    -->
-    <script>
-      if (window.location.protocol === 'file:') {
-        window.location.replace('vertex.html');
+    <style>
+      html, body {
+        background-color: #06080f;
+        color: #f8fafc;
+        margin: 0;
+        padding: 0;
+        font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
       }
+      .loader-container {
+        text-align: center;
+        animation: pulse 1.5s infinite ease-in-out;
+      }
+      .loader-title {
+        color: #d4af37;
+        font-size: 1.8rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+      }
+      .loader-sub {
+        color: #94a3b8;
+        font-size: 1rem;
+        font-style: italic;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.7; transform: scale(0.99); }
+        50% { opacity: 1; transform: scale(1.01); }
+      }
+    </style>
+    <!-- Instant Static / GitHub Pages / File Protocol Redirect to Standalone Engine -->
+    <script>
+      (function() {
+        // Detect if running inside local Vite development server
+        var isLocalVite = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && window.location.port !== '';
+        if (!isLocalVite) {
+          // Immediately redirect to the self-contained standalone build (works on GitHub Pages and file://)
+          window.location.replace('vertex.html');
+        }
+      })();
     </script>
     <noscript>
       <meta http-equiv="refresh" content="0;url=vertex.html" />
     </noscript>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js" onerror="window.location.replace('vertex.html')"></script>
+    <div id="app">
+      <div class="loader-container">
+        <h2 class="loader-title">✦ VERTEX ✦</h2>
+        <p class="loader-sub">Synchronizing Spacetime Coordinates...</p>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
